@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>index.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<p><img src="image/background.jpg" alt="bg"></p>
+<h1 id="center%E6%95%85%E5%AE%AB%E4%BB%8B%E7%BB%8Dcenter"><center>故宫介绍</center></h1>
+<h5 id="p-align%22right%22by-%E4%B8%833-%E5%88%98%E5%AE%B6%E9%93%84%E7%9A%842022%E5%AF%92%E5%81%87%E4%BD%9C%E4%B8%9Ap"><p align="right">By 七(3) 刘家铄<s>的2022寒假作业</s></p></h5>
+<ul>
+<li>北京故宫是中国明清两代的皇家宫殿，旧称紫禁城，位于北京中轴线的中心。北京故宫以三大殿为中心，占地面积约72万平方米，建筑面积约15万平方米，有大小宫殿七十多座，房屋九千余间。(来自<a href="https://baike.baidu.com/item/%E5%8C%97%E4%BA%AC%E6%95%85%E5%AE%AB/345415?fromtitle=%E6%95%85%E5%AE%AB&amp;fromid=9326&amp;fr=aladdin">百度百科</a>)</li>
+</ul>
+<h2 id="0-%E7%9B%AE%E5%BD%95">0. 目录</h2>
+<table>
+<thead>
+<tr>
+<th>序号</th>
+<th>名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>No.0</td>
+<td>目录</td>
+<td>一张 <s>平平无奇的</s> 目录📜</td>
+</tr>
+<tr>
+<td>No.1</td>
+<td>故宫构造</td>
+<td>一张 <s>平平无奇的</s> 地图及其介绍</td>
+</tr>
+<tr>
+<td>No.2</td>
+<td>故宫历史</td>
+<td>一段 <s>平平无奇的</s> 文章</td>
+</tr>
+<tr>
+<td>No.3</td>
+<td>故宫藏品</td>
+<td>一些 <s>价值不菲的</s> 东西及其介绍</td>
+</tr>
+<tr>
+<td>No.4</td>
+<td>其他的事情</td>
+<td>一些有 <s>(没)</s> 用的东西</td>
+</tr>
+</tbody>
+</table>
+<h3 id="1-%E6%95%85%E5%AE%AB%E6%9E%84%E9%80%A0">1. 故宫构造</h3>
+<p><img src="image/structure.jpg" alt="structure"></p>
+<ul>
+<li>故宫位于北京城中心。布局依据《周礼·考工记》中所载：“左祖、右社、面朝、后市”的原则，建筑在北京城南北长八公里的中轴线上，南北取直，左右对称。如今故宫左前面的劳动人民文化宫，明清是皇帝祭祀祖宗的太庙；右前面的中山公园是皇帝祭祀土神和谷神的社稷坛；前面有朝臣办事的处所；后面有人们进行交易的市场。(来自<a href="https://zhidao.baidu.com/question/451024631.html">百度知道</a>)</li>
+<li>北京故宫内的建筑分为外朝和内廷两部分。外朝的中心为太和殿、中和殿、保和殿，统称三大殿，是国家举行大典礼的地方。三大殿左右两翼辅以文华殿、武英殿两组建筑。内廷的中心是乾清宫、交泰殿、坤宁宫，统称后三宫，是皇帝和皇后居住的正宫。其后为御花园。后三宫两侧排列着东、西六宫，是后妃们居住休息的地方。东六宫东侧是天穹宝殿等佛堂建筑，西六宫西侧是中正殿等佛堂建筑。外朝、内廷之外还有外东路、外西路两部分建筑。(来自<a href="https://baike.baidu.com/item/%E5%8C%97%E4%BA%AC%E6%95%85%E5%AE%AB/345415?fromtitle=%E6%95%85%E5%AE%AB&amp;fromid=9326&amp;fr=aladdin">百度百科</a>)</li>
+<li>总之就是有两层，外层是与官员在一起的地方办正事，内层是皇帝自己的地方，办私事，外层外有几个门，几个建筑，还有一些角楼和护城河，于是就构成了我们的：</li>
+</ul>
+<h2 id="center%E6%95%85%E5%AE%ABcenter"><center>故宫</center></h2>
+<h6 id="p-align%22right%22%E5%A5%BD%E4%B8%AD%E4%BA%8C%E5%95%8Ap"><p align="right"><s>好中二啊</s></p></h6>
+<h3 id="2-%E6%95%85%E5%AE%AB%E7%B4%AB%E7%A6%81%E5%9F%8E%E5%8E%86%E5%8F%B2">2. 故宫(紫禁城)历史</h3>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>事件</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>永乐元年（1403年）</td>
+<td>(建造过程)北京本来是燕王朱棣的封地。礼部尚书李至刚等奏称，燕京北平是皇帝“龙兴之地”，应当效仿明太祖对凤阳的做法，立为陪都。明成祖于是大力擢升燕京北平府的地位，以北平为北京，改北平府为顺天府，称为“行在”。</td>
+</tr>
+<tr>
+<td>永乐十八年（1420年）</td>
+<td>(明朝时期)故宫建成后，明清宫廷五百多年的历史，包含了帝后活动，等级制度、权力斗争、宗教祭祀等。北京宫殿竣工,次年发生大火，前三殿被焚毁。</td>
+</tr>
+<tr>
+<td>崇祯十七年（清顺治元年、大顺永昌元年，1644年）</td>
+<td>李自成军攻陷北京，明朝灭亡，但李自成很快被清军在山海关击败。李自成向陕西撤退前焚毁紫禁城，仅武英殿、建极殿、英华殿、南薰殿、四周角楼和皇极门未焚，其余建筑全部被毁。五月初二，清军进入北京，紫禁城被清军接管。</td>
+</tr>
+<tr>
+<td>宣统三年（1911年）辛亥革命后</td>
+<td>紫禁城宫殿本应全部收归国有，但按照那时拟定的《清室优待条件》，逊帝爱新觉罗·溥仪被允许“暂居宫禁”，即“后寝”部分。侍卫人等照常留用；王公世爵仍其旧”等条款。</td>
+</tr>
+<tr>
+<td>1949年中华人民共和国成立以后</td>
+<td>故宫建筑进行了大规模的修缮，同时整理出大量的文物。1961年国务院颁布故宫为全国重点文物保护单位。故宫博物院现存文物150万件（套）。（旧）1987年故宫被联合国教科文组织列为“世界文化遗产”，辟为“故宫博物院”。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="3-%E6%95%85%E5%AE%AB%E3%81%AE%E8%97%8F%E5%93%81">3. 故宫<s>の</s>藏品</h3>
+<ul>
+<li>截至2022/1/26 21:58, 故宫共有藏品1,863,404（件/套）<s>我亲自去看了亿眼</s>，包括绘画、书法、碑帖、先秦铭文青铜器、金银器、漆器、生活用具、钟表、宗教文物和武备仪仗</li>
+</ul>
+<hr>
+<h4 id="31-%E4%B8%BE%E4%BA%BF%E4%B8%AA%E6%A0%97%E5%AD%90">3.1. 举亿个栗子：</h4>
+<ol>
+	<li>宫廷之宝&nbsp; &nbsp; 乾隆款金瓯永固杯</li>
+	<li>漆器之宝 &nbsp; "张成造"款雕漆云纹盘</li>
+	<li>玉器之宝&nbsp; &nbsp;青玉云龙纹炉</li>
+	<li>珐琅之宝&nbsp; &nbsp;掐丝珐琅缠枝莲纹象耳炉</li>
+	<li>书画之宝&nbsp; 《清明上河图》</li>
+	<li>法帖之宝&nbsp; 西晋陆机的《平复帖》</li>
+	<li>钟表之宝&nbsp; 彩漆描金楼阁式自开门群仙祝寿御制钟</li>
+	<li>织绣之宝&nbsp; 沈子蕃缂丝《梅鹊图》</li>
+	<li>陶瓷之宝&nbsp; 郎窑红釉穿带直口瓶</li>
+	<li>青铜之宝&nbsp; 酗亚方樽</li>
+</ol>
+<hr>
+<h6 id="%E5%8D%8E%E4%B8%BD%E7%9A%84%E5%88%86%E5%89%B2%E7%BA%BF"><s>华丽的分割线</s></h6>
+<h4 id="32-%E8%97%8F%E5%93%81%E7%BE%8E%E5%9B%BE">3.2. 藏品美图：</h4>
+<h5 id="%E5%85%88%E6%94%BE%E4%B8%89%E5%BC%A0">先放三张：</h5>
+<p><img src="image/1.jpeg" alt="img1">
+<img src="image/2.jpeg" alt="img2">
+<img src="image/3.jpeg" alt="img3"></p>
+<h5 id="%E4%B8%8D%E7%94%A8%E4%B8%8B%E8%BD%BD%E7%9A%84%E5%85%A8%E9%83%A8%E5%9B%BE%E7%89%87%E6%B2%A1%E5%9C%B0%E6%96%B9%E6%94%BE%E5%BE%97%E4%B8%8B%E9%82%A3%E4%B9%88%E5%A4%9A">不用下载的全部图片(没地方放得下那么多)：</h5>
+<p><a href="image.html">打开image.html</a></p>
+<h5 id="%E6%83%B3%E8%A6%81%E6%9B%B4%E5%A4%9A-%E6%9D%A5%E5%AE%98%E7%BD%91">想要更多? <a href="https://digicol.dpm.org.cn/">来官网。</a></h5>
+<h3 id="4-%E5%85%B6%E4%BB%96%E7%9A%84%E4%BA%8B%E6%83%85">4. 其他的事情</h3>
+<h4 id="%E6%9C%AC%E7%BD%91%E9%A1%B5%E9%87%87%E7%94%A8markdown%E7%BC%96%E5%86%99-developed-with-visual-studio-code">- 本网页采用markdown编写 Developed with Visual Studio Code</h4>
+<h4 id="%E6%9C%AC%E7%BD%91%E9%A1%B5%E6%98%AF%E5%88%98%E5%AE%B6%E9%93%84%E7%9A%84%E5%AF%92%E5%81%87%E5%8E%86%E5%8F%B2%E4%BD%9C%E4%B8%9A">- 本网页是刘家铄的寒假历史作业</h4>
+<h4 id="center%E4%B8%80%E5%88%87%E4%BB%A5-%E5%AE%98%E7%BD%91-httpswwwdpmorgcnhomehtml%E4%B8%BA%E5%87%86center"><a href="https://www.dpm.org.cn/Home.html"><center>一切以 官网 https://www.dpm.org.cn/Home.html为准</center></a></h4>
+
+</body>
+</html>
