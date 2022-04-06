@@ -8,4 +8,6 @@
 ### [2022年寒假数学九连环主页](https://dscs2009.github.io/homework/2022/Math/)
 ### [偷（明）拍](https://dscs2009.github.io/img/)  
 ### [697题题解](https://dscs2009.github.io/problems/bnds/697/)  
+### Other
+#### [LYX AK IOI](https://dscs2009.github.io/test_drawio.html)
 # Developing...
