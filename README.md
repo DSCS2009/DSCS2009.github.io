@@ -2,6 +2,8 @@
 ## DSCS2009的个人网站
 ### [@我的luogu博客](https://dscs2009.blog.luogu.org/)
 ### [polandballtale项目(后更名Disordered History)](https://dscs2009.github.io/Projects/Polandballtale/)  
+### [七下项目式研究-环球旅行家-国家卡牌生成器项目](https://dscs2009.github.io/Projects/GTCAG/)
+### [历史抽人小程序项目](https://dscs2009.github.io/Projects/Lucky_Covered_By_DSCS2009/)
 ### [一些整人玩意儿](https://dscs2009.github.io/bin/)  
 ### [2021年暑假作业](https://dscs2009.github.io/homework/2021/)
 ### [2022年寒假历史故宫主页](https://dscs2009.github.io/homework/2022/The_Imperial_Palace/)
