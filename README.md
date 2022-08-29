@@ -9,6 +9,7 @@
 ### [2021年暑假作业](https://dscs2009.github.io/homework/2021/)
 ### [2022年寒假历史故宫主页](https://dscs2009.github.io/homework/2022/The_Imperial_Palace/)
 ### [2022年寒假数学九连环主页](https://dscs2009.github.io/homework/2022/Math/)
+### [2022年暑假数学《你不可不知的50个数学知识》-40](https://dscs2009.github.io/homework/2022/Summer/Math/)
 ### [偷（明）拍](https://dscs2009.github.io/img/)  
 ### [697题题解](https://dscs2009.github.io/problems/bnds/697/)  
 ### Other
