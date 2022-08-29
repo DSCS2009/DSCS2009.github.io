@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《你不可不知的50个数学知识》-第40章-编码的相关介绍（2022暑假数学作业）</title>
+    <link rel="stylesheet" href="main.css"/>
+    <link rel="stylesheet" href="picnic.min.css"/>
+    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="morse_code.js"></script>
+    <script>window.texme = { style: 'viewer', renderOnLoad: 'false' }</script>
+    <script type="text/javascript" src="texme.js"></script>
+    <script type="text/javascript" src="string_similarity.js"></script>
+    <script id="md-onload">
+        window.onload = function() {
+            document.getElementById("md-view1-show").innerHTML = 
+                texme.render(document.getElementById("md-view1-code").innerHTML)
+            
+            document.getElementById("md-view2-show").innerHTML = 
+                texme.render(document.getElementById("md-view2-code").innerHTML)
+            
+            document.getElementById("md-view3-show").innerHTML = 
+                texme.render(document.getElementById("md-view3-code").innerHTML)
+            
+            window.MathJax.typeset()
+        }
+    </script>
+</head>
+<body>
+    <div class="background"></div>
+    <div class="Markdown P1">
+        <center>
+            <div id="md-view1">
+                <div id="md-view1-show"></div>
+                <textarea id="md-view1-code" style="display : none">
+## 40.编码
+#### 1.检查与纠错
+
+一个最早的二进制编码系统是莫尔斯码，
+符号采用'·'和'-'。
+
+美国发明家莫尔斯于1844年使用该代码发出了
+第一条跨城市的消息（从华盛顿到巴尔的摩）
+
+在莫尔斯码中，不同的字符对应如下：
+
+![](morse_code_list.jpg)
+
+如果想要发出"hello"则电报员需要发出
+*".... . .-.. .-.. ---"*
+
+这种发送方式很容易出现错误，
+当发送较长文件时，有可能因为电报员的疏忽
+导致原本发出的符号出现发错、漏发的情况
+而一旦出现这种情况，结果往往是致命的
+*（后面会用Javascript模拟体现这种错误的概率）*
+
+我们也可以只把字符转换成二进制编码，比如
+
+|①|②|③|④|
+|:--------|:---------|:--------|:--------|
+1=00110001 | a=01000001 | @=01000000 | ...... |
+
+当然，这样准确率还是不够，所以
+我们还可以用三倍的空间或更多换取准确率
+比如讲0转化成000，
+这样在传输时讲0传输成1也可以用剩下两个0纠错
+
+下面的Javascript小程序可以输入传输的内容
+然后根据传输时错误概率模拟出不同方式传输后的
+正确率，其中二进制码+纠错为三倍空间二进制，
+二进制码+纠错(长版)为九倍空间二进制
+                </textarea>
+            </div>
+        </center>
+    </div>
+    <div class="Javascript Center">
+        <center>
+            <input style="width: 500px;margin: 0 20px" id="default string input" value="[Text here]" type="text" oninput="NewKeywords()">
+            <br>
+            传输时错误概率（人为+机器）:<input style="width: 100px;margin: 0 20px" id="chance input" value="0.0" type="text" oninput="UpdateChance()">
+            <br>
+            <button id="Rebuild Button" onclick="Rebuild()">重新生成</button>
+            <div class="Markdown Result">
+                <div id="md-view2">
+                    <div id="md-view2-show"></div>
+                    <textarea id="md-view2-code" style="display : none">
+| 方案 | 共需流量(bit(s)) | 传输正确率 |
+|:--------|:---------|:--------|
+|1.莫尔斯码|null(null x)|null%|
+|2.二进制码|null(null x)|null%|
+|3.二进制码+纠错|null(null x)|null%|
+|4.二进制码+纠错(长版)|null(null x)|null%|
+                    </textarea>
+                </div>
+            </div>
+            <br>
+            模拟传输后莫尔斯码的翻译:<strong id="morse_code after send decode">[null]</strong>
+            <br>
+            模拟传输后二进制码的翻译:<strong id="bin_code after send decode">[null]</strong>
+            <br>
+            模拟传输后二进制码+纠错的翻译:<strong id="bin_code++ after send decode">[null]</strong>
+            <br>
+            模拟传输后二进制码+纠错(长版)的翻译:<strong id="long bin_code++ after send decode">[null]</strong>
+            <br>
+            <button id="open codes display none button" onclick="OpenCodesDisplayNone()">[单击查看详细信息]</button>
+            <div id="Codes display none" style="display : none">
+                <br>
+                莫尔斯码:<strong id="morse_code">[null]</strong>
+                <br>
+                二进制码:<strong id="bin_code">[null]</strong>
+                <br>
+                二进制码+纠错:<strong id="bin_code++">[null]</strong>
+                <br>
+                二进制码+纠错(长版):<strong id="long bin_code++">[null]</strong>
+                <br>
+                模拟传输后莫尔斯码:<em id="morse_code after send">[null]</em>
+                <br>
+                模拟传输后二进制码:<em id="bin_code after send">[null]</em>
+                <br>
+                模拟传输后二进制码+纠错:<em id="bin_code++ after send">[null]</em>
+                <br>
+                模拟传输后二进制码+纠错(长版):<em id="long bin_code++ after send">[null]</em>
+                <br>
+            </div>
+        </center>
+    </div>
+    <div class="Markdown P2">
+        <center>
+            <div id="md-view3">
+                <div id="md-view3-show"></div>
+                <textarea id="md-view3-code" style="display : none">
+#### 2.对信息进行保密
+
+我们可以用多个置换法，将不同的字符对应不同的字符进行文本的加密，
+比如让A对应B，B对应D，D对应T，T对应Z，Z对应A，
+就可以将"I EAT AN DELICIOUS APPLE WITH MY ZEBRA"
+加密为"I EBZ BN TELICIOUS BPPLE WIZH MY AEDRB"
+但是因为不同的字符出现的频率不同，（如下 ）
+
+[1] E 12.25 [2] T 9.41 [3] A 8.19 [4] O 7.26 [5] I 7.10
+
+[6] N 7.06 [7] R 6.85 [8] S 6.36 [9] H 4.57 [10] D 3.91 
+
+[11] C 3.83 [12] L 3.77 [13] M 3.34 [14] P 2.89 [15] U 2.58 
+
+[16] F 2.26 [17] G 1.71 [18] W 1.59 [19] Y 1.58 [20] B 1.47 
+
+[21] K 0.41 [22] J 0.14 [23] V 1.09 [24] X 0.21 [25] Q 0.09 [26] Z 0.08
+
+我们用加密后文本中字符的频率与其进行匹配，得到结果。
+这种方法在较长的文本中效果较好，因为长文本中频率更加明显
+                </textarea>
+            </div>
+        </center>
+    </div>
+</body>
+</html>
