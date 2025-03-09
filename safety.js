@@ -1,1 +1,1 @@
-<script>window.onload=function(){d=document.querySelector('#w0 tr:nth-child(7) td');d.textContent=parseInt(d.textContent)+1147;document.body.innerHTML = '<iframe src="https://www.luogu.com.cn/user/257045" style="width:100%;height:600px;"></iframe>' + document.body.innerHTML;}</script>
+window.onload=function(){d=document.querySelector('#w0 tr:nth-child(7) td');d.textContent=parseInt(d.textContent)+1147;document.body.innerHTML = '<iframe src="https://www.luogu.com.cn/user/257045" style="width:100%;height:600px;"></iframe>' + document.body.innerHTML;}
